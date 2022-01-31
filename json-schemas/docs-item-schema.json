@@ -1,0 +1,307 @@
+{
+  "title": "JSON schema for S4TK documentation item files.",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+
+  "definitions": {
+    "typeReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "pkg",
+            "group",
+            "item"
+          ],
+          "properties": {
+            "pkg": {
+              "type": "string"
+            },
+            "group": {
+              "type": "string"
+            },
+            "item": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "genericType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "extends": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/typeReference"
+          }
+        }
+      }
+    },
+    "sectionFunction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "displayType",
+        "name"
+      ],
+      "properties": {
+        "displayType": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "generics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/genericType"
+          }
+        },
+        "returnType": {
+          "$ref": "#/definitions/typeReference"
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "code"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "lang": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "arguments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "type"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "optional": {
+                "type": "boolean"
+              },
+              "type": {
+                "$ref": "#/definitions/typeReference"
+              }
+            }
+          }
+        }
+      }
+    },
+    "sectionProperty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "displayType",
+        "name",
+        "type"
+      ],
+      "properties": {
+        "displayType": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "optional": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/typeReference"
+        }
+      }
+    },
+    "sectionEnum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "displayType",
+        "values"
+      ],
+      "properties": {
+        "displayType": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "value"
+            ],
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "type": "object",
+  "required": [
+    "header",
+    "sections"
+  ],
+  "properties": {
+    "imports": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "repoUrl": {
+          "type": "string"
+        },
+        "title": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "prefix": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "extends": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/typeReference"
+              }
+            },
+            "implements": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/typeReference"
+              }
+            },
+            "generics": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/definitions/genericType"
+              }
+            }
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "content"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "content": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/sectionFunction"
+                },
+                {
+                  "$ref": "#/definitions/sectionProperty"
+                },
+                {
+                  "$ref": "#/definitions/sectionEnum"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "seeAlso": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/typeReference" 
+          }
+        }
+      }
+    }
+  }
+}
