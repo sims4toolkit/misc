@@ -3,10 +3,18 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "additionalProperties": false,
+  "required": [
+    "versions",
+    "groups"
+  ],
   "properties": {
+    "$schema": {
+      "type": "string"
+    },
     "versions": {
       "type": "array",
       "minItems": 1,
+      "uniqueItems": true,
       "items": {
         "type": "string"
       }
@@ -14,9 +22,14 @@
     "groups": {
       "type": "array",
       "minItems": 1,
+      "uniqueItems": true,
       "items": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "name",
+          "items"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -24,6 +37,7 @@
           "items": {
             "type": "array",
             "minItems": 1,
+            "uniqueItems": true,
             "items": {
               "type": "string"
             }
