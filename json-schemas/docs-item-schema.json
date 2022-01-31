@@ -54,6 +54,33 @@
         }
       }
     },
+    "argumentsList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "type"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "type": {
+            "$ref": "#/definitions/typeReference"
+          },
+          "properties": {
+            "$ref": "#/definitions/argumentsList"
+          }
+        }
+      }
+    },
     "sectionFunction": {
       "type": "object",
       "additionalProperties": false,
@@ -63,7 +90,8 @@
       ],
       "properties": {
         "displayType": {
-          "type": "string"
+          "type": "string",
+          "enum": ["function"]
         },
         "name": {
           "type": "string"
@@ -101,28 +129,7 @@
           }
         },
         "arguments": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "name",
-              "type"
-            ],
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "optional": {
-                "type": "boolean"
-              },
-              "type": {
-                "$ref": "#/definitions/typeReference"
-              }
-            }
-          }
+          "$ref": "#/definitions/argumentsList"
         }
       }
     },
@@ -136,7 +143,8 @@
       ],
       "properties": {
         "displayType": {
-          "type": "string"
+          "type": "string",
+          "enum": ["property"]
         },
         "prefix": {
           "type": "string"
@@ -164,7 +172,8 @@
       ],
       "properties": {
         "displayType": {
-          "type": "string"
+          "type": "string",
+          "enum": ["enum"]
         },
         "values": {
           "type": "array",
