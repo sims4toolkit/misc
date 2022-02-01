@@ -196,6 +196,26 @@
           }
         }
       }
+    },
+    "sectionGeneral": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "displayType",
+        "paragraphs"
+      ],
+      "properties": {
+        "displayType": {
+          "type": "string",
+          "enum": ["general"]
+        },
+        "paragraphs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
 
@@ -292,6 +312,9 @@
                 },
                 {
                   "$ref": "#/definitions/sectionEnum"
+                },
+                {
+                  "$ref": "#/definitions/sectionGeneral"
                 }
               ]
             }
