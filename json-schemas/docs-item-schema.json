@@ -242,8 +242,9 @@
         "description": {
           "type": "string"
         },
-        "repoUrl": {
-          "type": "string"
+        "sourceCode": {
+          "type": "string",
+          "description": "The path to this item's source code, relative to its GitHub repo."
         },
         "title": {
           "type": "object",
