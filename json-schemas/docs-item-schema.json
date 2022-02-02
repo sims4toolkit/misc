@@ -54,6 +54,17 @@
         }
       }
     },
+    "deprecationWarning": {
+      "type": "object",
+      "properties": {
+        "isDeprecated": {
+          "type": "boolean"
+        },
+        "date": {
+          "type": "string"
+        }
+      }
+    },
     "argumentsList": {
       "type": "array",
       "items": {
@@ -93,11 +104,17 @@
           "type": "string",
           "enum": ["function"]
         },
+        "deprecation": {
+          "$ref": "#/definitions/deprecationWarning"
+        },
         "name": {
           "type": "string"
         },
         "prefix": {
           "type": "string"
+        },
+        "overrides": {
+          "$ref": "#/definitions/typeReference"
         },
         "description": {
           "type": "string"
@@ -146,11 +163,17 @@
           "type": "string",
           "enum": ["property"]
         },
+        "deprecation": {
+          "$ref": "#/definitions/deprecationWarning"
+        },
         "prefix": {
           "type": "string"
         },
         "name": {
           "type": "string"
+        },
+        "overrides": {
+          "$ref": "#/definitions/typeReference"
         },
         "description": {
           "type": "string"
