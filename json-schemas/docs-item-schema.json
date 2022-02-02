@@ -209,7 +209,7 @@
               "value"
             ],
             "properties": {
-              "key": {
+              "name": {
                 "type": "string"
               },
               "value": {
