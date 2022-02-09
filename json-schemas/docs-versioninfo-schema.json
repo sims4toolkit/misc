@@ -12,6 +12,7 @@
         "additionalProperties": false,
         "required": [
           "severity",
+          "title",
           "description"
         ],
         "properties": {
@@ -25,6 +26,9 @@
             ]
           },
           "description": {
+            "type": "string"
+          },
+          "title": {
             "type": "string"
           }
         }
