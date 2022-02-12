@@ -18,6 +18,7 @@
         "properties": {
           "severity": {
             "type": "string",
+            "description": "How serious the problem is.",
             "enum": [
               "negligible",
               "moderate",
@@ -26,9 +27,11 @@
             ]
           },
           "description": {
+            "description": "Longer description of what the problem is.",
             "type": "string"
           },
           "title": {
+            "description": "Brief title for the problem.",
             "type": "string"
           }
         }
