@@ -1,7 +1,6 @@
 {
   "title": "JSON schema for S4TK documentation index files.",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  
   "type": "object",
   "required": [
     "versions",
@@ -39,6 +38,25 @@
               "type": "string"
             }
           }
+        }
+      }
+    },
+    "notice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "text"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "experimental"
+          ]
+        },
+        "text": {
+          "type": "string"
         }
       }
     }
