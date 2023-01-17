@@ -1,0 +1,13 @@
+{
+  "accepted": [
+    "package",
+    "xml",
+    "py",
+    "log",
+    "txt",
+    "html",
+    "js",
+    "ts",
+    "json"
+  ]
+}

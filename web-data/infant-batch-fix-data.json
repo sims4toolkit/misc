@@ -1,0 +1,98 @@
+[
+  {
+    "tdesc": "Mood",
+    "path": "Moods/Descriptions",
+    "ageMentions": [
+      {
+        "path": "TunableList=descriptions_age_override,TunableTuple",
+        "simData": true
+      }
+    ]
+  },
+  {
+    "tdesc": "CustomTrackerObjective",
+    "path": "Objectives/Descriptions",
+    "ageMentions": [
+      {
+        "path": "TunableVariant=display_age_list,TunableList=enabled",
+        "simData": true
+      }
+    ]
+  },
+  {
+    "tdesc": "Objective",
+    "path": "Objectives/Descriptions",
+    "ageMentions": [
+      {
+        "path": "TunableVariant=display_age_list,TunableList=enabled",
+        "simData": true
+      },
+      {
+        "path": "TunableVariant=objective_test,TunableTuple=household_size,TunableVariant=test_type,TunableTuple=test_sim_infos,TunableVariant=test,TunableTuple=sim_info,TunableVariant=ages,TunableList=specified"
+      }
+    ]
+  },
+  {
+    "tdesc": "ScenarioRole",
+    "path": "Snippets/Descriptions",
+    "ageMentions": [
+      {
+        "path": "TunableList=criteria,TunableTuple,TunableList=criteria_list,TunableTuple,TunableVariant=criterion,TunableList=age",
+        "simData": true
+      }
+    ]
+  },
+  {
+    "tdesc": "LifeSkillStatistic",
+    "path": "Statistics/Descriptions",
+    "ageMentions": [
+      {
+        "path": ""
+      },
+      {
+        "path": "TunableList=trait_on_age_up_list,TunableTuple,TunableVariant=age_up_info,TunableTuple=enabled_age_up_info",
+        "simData": true
+      }
+    ]
+  },
+  {
+    "tdesc": "Skill",
+    "path": "Statistics/Descriptions",
+    "ageMentions": [
+      {
+        "path": "TunableList=ages",
+        "simData": true
+      }
+    ]
+  },
+  {
+    "tdesc": "Trait",
+    "path": "Traits/Descriptions",
+    "ageMentions": [
+      {
+        "path": "TunableList=ages",
+        "simData": true
+      },
+      {
+        "path": "TunableVariant=disable_aging,TunableTuple=enabled,TunableList=allowed_ages"
+      },
+      {
+        "path": "TunableList=event_test_based_loots,TunableTuple,TunableVariant=test,TunableTuple=household_size,TunableVariant=test_type,TunableTuple=test_sim_infos,TunableVariant=test,TunableTuple=sim_info,TunableVariant=ages,TunableList=specified"
+      }
+    ]
+  },
+  {
+    "tdesc": "TutorialTip",
+    "path": "TutorialTips/Descriptions",
+    "ageMentions": [
+      {
+        "path": "TunableVariant=gameplay_immediate_test,TunableVariant=enabled,TunableTuple=household_size,TunableVariant=test_type,TunableTuple=test_sim_infos,TunableVariant=test,TunableTuple=sim_info,TunableVariant=ages,TunableList=specified",
+        "simData": true
+      },
+      {
+        "path": "TunableVariant=gameplay_test,TunableVariant=enabled,TunableTuple=household_size,TunableVariant=test_type,TunableTuple=test_sim_infos,TunableVariant=test,TunableTuple=sim_info,TunableVariant=ages,TunableList=specified",
+        "simData": true
+      }
+    ]
+  }
+]
